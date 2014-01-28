@@ -29,7 +29,7 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      files: ['<%= concat.dist.src %>'],
+      files: ['src/tumblr.html', 'src/main.less'],
       tasks: ['less', 'htmlbuild']
     }
   });
@@ -37,6 +37,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-html-build');
+  grunt.loadNpmTasks('grunt-bower-task');
 
   grunt.registerTask('default', ['less', 'htmlbuild']);
 };
