@@ -1,109 +1,77 @@
 body{
-    font-family: "Helvetica Neue", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
 }
 #title{
-    margin: 100px auto 10px auto;
-    font-size: 100px;
-    line-height: 110px;
-    font-family: "Ubuntu Condensed";
-    text-align: center;
-}
-#archive-link{
-    width: 50px;
-    padding: 5px;
-    font-size: 10px;
-    text-align: center;
-    margin: -8px auto;
-    display: block;
-    border: 1px solid white;
-    display:none;
-}
-#archive-link:hover{
-    border: 1px solid silver;  
-}
-#description{
-    display:none;   
+  margin: 100px auto 10px auto;
+  font-size: 100px;
+  line-height: 110px;
+  font-family: "Ubuntu Condensed";
+  text-align: center;
 }
 a{
-    color: black;
-    font-weight: bold;
-}
-a:hover{
+  color: black;
+  font-weight: bold;
+  &:hover {
     color: orange;    
-}
-.photoset-250{
-    display:none;   
-}
-#posts{
-    clear:both;   
-    width:100%;
-    margin: 0 auto;
+  }
 }
 .post{
-    max-width: 500px;
-    padding: 10px;
-    margin: 10px auto;
-}
-.post img{
-    max-width: 100%;   
-    height: auto !important;
-}
-.post .meta{
-    font-size: 11px;
+  max-width: 500px;
+  padding: 10px;
+  margin: 10px auto;
+  img{
+      max-width: 100%;   
+      height: auto !important;
+  }
+  &.photo,
+  &.video,
+  &.audio {
+    text-align:center;
+  }
+  &.quote{
+    font-size:34px;
+    font-family: Georgia, serif;
+    .source{
+      text-align:right;
+      font-size: 13px;
+      font-family: "Helvetica Neue", sans-serif;
+    }
+  }
+  .meta{
+    font-size: 14px;
     text-align:right;
     font-family: "Helvetica Neue", sans-serif;
-     padding:4px;
+    padding:6px;
+    zoom: 1;
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+  &:hover .meta{
+    filter: alpha(opacity=100);
+    opacity: 1;
+  }
+
 }
- .post .meta:hover{
-     background:#fafafa;
- }
- .tags, .tags li{
-    list-style-type: none;
-    padding: 0; margin:0;
-    float: left;
- }
+.tags, .tags li{
+  list-style-type: none;
+  padding: 0; margin:0;
+  float: left;
+}
 .tags li{
   padding: 2px 4px; 
   margin: -1px 0;
-}
-.tags li a{
-  font-weight: normal;
-  color: #333;
-}
-.tags li a:hover{
-  color: black;
-}
- 
-.text{
-    background: #fafafa; 
-}
-.photo img{
-    max-width: 100%;
-}
-.photo .caption{
-    text-align:center;
-}
-.link{
-    background: #fafafa;
-}
-.link .description{
-    font-size:13px;
-}
-.quote, .chat, .link{
-    max-width:300px;
-}
-.quote{
-    font-size:24px;
-    font-family: Georgia, serif;
-}
-.quote .source{
-    text-align:right;
-    font-size: 13px;
-    font-family: "Helvetica Neue", sans-serif;
-}
-.pagination{
-    clear:both;
-    width: 90%;
-    margin: 10px auto;
+  a{
+    font-weight: normal;
+    color: #333;
+  }
+  a:hover {
+    color: black;
+  }
 }
 
+
+.pagination{
+  clear:both;
+  width: 90%;
+  margin: 10px auto;
+}

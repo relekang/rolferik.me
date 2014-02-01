@@ -4,195 +4,109 @@
     <title>{Title}</title>
     {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
     <meta charset="utf-8">
+    <meta name="text:AnalyticsID" content=""/>
     <meta name="viewport" content="width=device-width">
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
     <link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed|Quattrocento:400,700" rel="stylesheet" type="text/css">
     <!-- build:style inline main -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
      <link href="/static/main.less" type="text/css" rel="stylesheet/less"/>
      <script src="/static/libs/less-1.4.1.min.js"></script>
     <!--/build-->
   </head>
   <body>
-    <h1 id="title">re</h1>
-    <a href="/archive" id="archive-link">(Archive)</a>
-    <div class="clearfix"></div>
-    {block:Description}
-        <p id="description">{Description}</p>
-    {/block:Description}
-
+    <h1 id="title" title="{Description}">re</h1>
     <div id="posts">
       {block:Posts}
+      <div class="post {PostType}">
           {block:Text}
-              <div class="post text">
-                  {block:Title}
-                      <h3><a href="{Permalink}">{Title}</a></h3>
-                  {/block:Title}
-
-                  {Body}
-                  <div class="meta">
-                  {block:HasTags}
-                      <ul class="tags">
-                          {block:Tags}
-                              <li>#<a href="{TagURL}">{Tag}</a></li>
-                          {/block:Tags}
-                      </ul>
-                  {/block:HasTags}
-                  <a href="{Permalink}">{TimeAgo}</a> | {NoteCountWithLabel}
-              
-                  </div>
-              </div>
+            {block:Title}
+              <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}
+            {Body}
           {/block:Text}
+          {Block:Photo}
+            {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+            {block:Camera}Camera: {Camera}{/block:Camera}
+            {block:Caption}{Caption}{/block:Caption}
+          {/Block:Photo}
 
-          {block:Photo}
-              <div class="post photo">
-                  <a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a>
+          {block:Panorama}
+            {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
 
-                  {block:Caption}
-                      <div class="caption">{Caption}</div>
-                  {/block:Caption}
-                  <div class="meta">
-                  {block:HasTags}
-                      <ul class="tags">
-                          {block:Tags}
-                              <li>#<a href="{TagURL}">{Tag}</a></li>
-                          {/block:Tags}
-                      </ul>
-                  {/block:HasTags}
-                  <a href="{Permalink}">{TimeAgo}</a> | {NoteCountWithLabel}
-              
-                  </div>
-              </div>
-          {/block:Photo}
+            {block:Caption}
+              {Caption}
+            {/block:Caption}
+          {/block:Panorama}
 
           {block:Photoset}
-              <div class="post photoset">
-                  
-                  <div class="photoset-500">{Photoset-500}</div>
-                  <div class="photoset-250">{Photoset-250}</div>
+            <div class="photoset-500">{Photoset-500}</div>
+            <div class="photoset-250">{Photoset-250}</div>
 
-                  {block:Caption}
-                      <div class="caption">{Caption}</div>
-                  {/block:Caption}
-                  <div class="meta">
-                  {block:HasTags}
-                      <ul class="tags">
-                          {block:Tags}
-                              <li>#<a href="{TagURL}">{Tag}</a></li>
-                          {/block:Tags}
-                      </ul>
-                  {/block:HasTags}
-                  <a href="{Permalink}">{TimeAgo}</a> | {NoteCountWithLabel}
-              
-                  </div>
-              </div>
+            {block:Caption}
+              <div class="caption">{Caption}</div>
+            {/block:Caption}
           {/block:Photoset}
 
           {block:Quote}
-              <div class="post quote">
-                  "{Quote}"
-
-                  {block:Source}
-                      <div class="source">— {Source}</div>
-                  {/block:Source}
-                  <div class="meta">
-                  {block:HasTags}
-                      <ul class="tags">
-                          {block:Tags}
-                              <li>#<a href="{TagURL}">{Tag}</a></li>
-                          {/block:Tags}
-                      </ul>
-                  {/block:HasTags}
-                  <a href="{Permalink}">{TimeAgo}</a> | {NoteCountWithLabel}
-              
-                  </div>
-              </div>
+            "{Quote}"
+            {block:Source}
+              <div class="source">— {Source}</div>
+            {/block:Source}
           {/block:Quote}
 
           {block:Link}
-              <div class="post link">
-                  <a href="{URL}" class="link" {Target}>{Name}</a>
-
-                  {block:Description}
-                      <div class="description">{Description}</div>
-                  {/block:Description}
-                  <div class="meta">
-                  {block:HasTags}
-                      <ul class="tags">
-                          {block:Tags}
-                              <li>#<a href="{TagURL}">{Tag}</a></li>
-                          {/block:Tags}
-                      </ul>
-                  {/block:HasTags}
-                  <a href="{Permalink}">{TimeAgo}</a> | {NoteCountWithLabel}
-              
-                  </div>
-              </div>
+            <a href="{URL}" class="link" {Target}>{Name}</a>
+            {block:Description}
+              <div class="description">{Description}</div>
+            {/block:Description}
           {/block:Link}
 
           {block:Chat}
-              <div class="post chat">
-                  {block:Title}
-                      <h3><a href="{Permalink}">{Title}</a></h3>
-                  {/block:Title}
+            {block:Title}
+                <h3><a href="{Permalink}">{Title}</a></h3>
+            {/block:Title}
 
-                  <ul class="chat">
-                      {block:Lines}
-                          <div class="{Alt} user_{UserNumber}">
-                              {block:Label}
-                                  <span class="label">{Label}</span>
-                              {/block:Label}
+            <ul class="chat">
+              {block:Lines}
+                <div class="{Alt} user_{UserNumber}">
+                  {block:Label}
+                    <span class="label">{Label}</span>
+                  {/block:Label}
 
-                              {Line}
-                          </div>
-                      {/block:Lines}
-                  </ul>
-                  <div class="meta">
-                  {block:HasTags}
-                      <ul class="tags">
-                          {block:Tags}
-                              <li>#<a href="{TagURL}">{Tag}</a></li>
-                          {/block:Tags}
-                      </ul>
-                  {/block:HasTags}
-                  <a href="{Permalink}">{TimeAgo}</a> | {NoteCountWithLabel}
-              
-                  </div>
-              </div>
+                  {Line}
+                </div>
+              {/block:Lines}
+            </ul>
           {/block:Chat}
 
           {block:Video}
-              <div class="post video">
-                  {Video-500}
-
-                  {block:Caption}
-                      <div class="caption">{Caption}</div>
-                  {/block:Caption}
-              </div>
+            {Video-500}
+            {block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
           {/block:Video}
 
           {block:Audio}
-              <div class="post audio">
-                  {AudioPlayerBlack}
-
-                  {block:Caption}
-                      <div class="caption">{Caption}</div>
-                  {/block:Caption}
-                  <div class="meta">
-                  {block:HasTags}
-                      <ul class="tags">
-                          {block:Tags}
-                              <li>#<a href="{TagURL}">{Tag}</a></li>
-                          {/block:Tags}
-                      </ul>
-                  {/block:HasTags}
-                  <a href="{Permalink}">{TimeAgo}</a> | {NoteCountWithLabel}
-              
-                  </div>
-              </div>
+            {AudioPlayerBlack}
+            {block:Caption}
+                <div class="caption">{Caption}</div>
+            {/block:Caption}
           {/block:Audio}
+
+          <div class="meta">
+            {block:HasTags}
+            <ul class="tags">
+              {block:Tags}
+                <li>#<a href="{TagURL}">{Tag}</a></li>
+              {/block:Tags}
+            </ul>
+            {/block:HasTags}
+            <a href="{Permalink}">{TimeAgo}</a>
+          </div>
+        </div>
       {/block:Posts}
     </div>
 
@@ -205,10 +119,10 @@
             <a href="{NextPage}">Next &#187;</a>
         {/block:NextPage}
     </div>
-
+    {block:IfAnalyticsId}
     <script type="text/javascript">
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-36894700-1']);
+      _gaq.push(['_setAccount', '{text:AnalyticsId}']);
       _gaq.push(['_trackPageview']);
 
       (function() {
@@ -217,8 +131,7 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
+    {/block:IfAnalyticsId}
     <script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script>
-   
-
   </body>
 </html>
