@@ -109,16 +109,15 @@
         </div>
       {/block:Posts}
     </div>
-
-    <div class="pagination pagination centered">
+    <ul class="pager">
         {block:PreviousPage}
-            <a href="{PreviousPage}">&#171; Previous</a>
+        <li><a href="{PreviousPage}">Previous</a></li>
         {/block:PreviousPage}
 
         {block:NextPage}
-            <a href="{NextPage}">Next &#187;</a>
+        <li><a href="{NextPage}">Next</a></li>
         {/block:NextPage}
-    </div>
+    </ul>
     {block:IfAnalyticsId}
     <script type="text/javascript">
       var _gaq = _gaq || [];
