@@ -1,77 +1,31 @@
-body{
-  font-family: "Helvetica Neue", sans-serif;
-}
-#title{
-  margin: 100px auto 10px auto;
-  font-size: 100px;
-  line-height: 110px;
-  font-family: "Ubuntu Condensed";
-  text-align: center;
-}
-a{
-  color: black;
-  font-weight: bold;
-  &:hover {
-    color: orange;    
-  }
-}
-.post{
-  max-width: 500px;
-  padding: 10px;
-  margin: 10px auto;
-  img{
-      max-width: 100%;   
-      height: auto !important;
-  }
-  &.photo,
-  &.video,
-  &.audio {
-    text-align:center;
-  }
-  &.quote{
-    font-size:34px;
-    font-family: Georgia, serif;
-    .source{
-      text-align:right;
-      font-size: 13px;
-      font-family: "Helvetica Neue", sans-serif;
-    }
-  }
-  .meta{
-    font-size: 14px;
-    text-align:right;
-    font-family: "Helvetica Neue", sans-serif;
-    padding:6px;
-    zoom: 1;
-    filter: alpha(opacity=0);
-    opacity: 0;
-  }
-  &:hover .meta{
-    filter: alpha(opacity=100);
-    opacity: 1;
-  }
+// Core variables and mixins
+@import "../bower_components/bootstrap/less/variables.less";
+@import "../bower_components/bootstrap/less/mixins.less";
 
-}
-.tags, .tags li{
-  list-style-type: none;
-  padding: 0; margin:0;
-  float: left;
-}
-.tags li{
-  padding: 2px 4px; 
-  margin: -1px 0;
-  a{
-    font-weight: normal;
-    color: #333;
-  }
-  a:hover {
-    color: black;
-  }
-}
+// Reset
+@import "../bower_components/bootstrap/less/normalize.less";
+@import "../bower_components/bootstrap/less/print.less";
 
+// Core CSS
+@import "../bower_components/bootstrap/less/scaffolding.less";
+@import "../bower_components/bootstrap/less/type.less";
+@import "../bower_components/bootstrap/less/code.less";
+@import "../bower_components/bootstrap/less/grid.less";
+@import "../bower_components/bootstrap/less/tables.less";
 
-.pagination{
-  clear:both;
-  width: 90%;
-  margin: 10px auto;
-}
+// Components
+@import "../bower_components/bootstrap/less/component-animations.less";
+@import "../bower_components/bootstrap/less/glyphicons.less";
+@import "../bower_components/bootstrap/less/pager.less";
+@import "../bower_components/bootstrap/less/labels.less";
+@import "../bower_components/bootstrap/less/badges.less";
+@import "../bower_components/bootstrap/less/thumbnails.less";
+@import "../bower_components/bootstrap/less/alerts.less";
+@import "../bower_components/bootstrap/less/progress-bars.less";
+@import "../bower_components/bootstrap/less/close.less";
+
+// Utility classes
+@import "../bower_components/bootstrap/less/utilities.less";
+@import "../bower_components/bootstrap/less/responsive-utilities.less";
+
+@import "style.less";
