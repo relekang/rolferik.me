@@ -1,0 +1,21 @@
+{
+  "name": "rolferik.me",
+  "version": "0.1.0",
+  "homepage": "https://github.com/relekang/rolferik.me",
+  "authors": [
+    "Rolf Erik Lekang <me@rolflekang.com>"
+  ],
+  "description": "Tumblr theme for rolferik.me",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.0"
+  }
+}
